@@ -12,12 +12,12 @@ class Todo extends React.Component {
   //   });
   // };
   render() {
-    const { id, description, date, done } = this.props;
+    const { id,description, date, done } = this.props;
     // const description = this.props.description;
     // const date = this.props.deadline;
     // const done = this.props.done;
     const { handleCheckBox } = this.props.todostore;
-
+   
     return (
       <li style={done
         ? {
@@ -34,6 +34,7 @@ class Todo extends React.Component {
         />
 
         {description}, on {date}.
+
       </li>
 
     );

@@ -3,15 +3,14 @@ import { Provider } from 'mobx-react';
 import "./App.css";
 import TodoList from './components/TodoList';
 import activities from './components/activities.json';
-
 import stores from './stores';
+
 
 
 class App extends Component {
 
   render() {
-
-    return (
+       return (
       <Provider {...stores}>
         <React.Fragment>
           <TodoList activities={activities} />

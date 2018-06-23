@@ -1,7 +1,6 @@
 import React from "react";
 import Todo from "./Todo";
 import "../App.css";
-//import todoList from './activities.json';
 import { observer, inject } from 'mobx-react';
 
 @inject('todostore')
@@ -9,7 +8,7 @@ import { observer, inject } from 'mobx-react';
 @observer
 class TodoList extends React.Component {
   render() {
-    const activities = this.props.activities;
+    const activities = this.props.todostore.listTodo;
     const todoListItem = activities.map((element =>
       <Todo
         id={element.id}
