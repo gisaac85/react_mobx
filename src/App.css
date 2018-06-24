@@ -10,14 +10,14 @@
   text-align: center;
   padding: 30px;
   border: 1px dashed blue;
-  width: 75%;
+  width: 50%;
   margin: 2px auto;
   display: flex;
   align-items: center;
   align-content: center;
-  justify-content: center;
-  flex-direction: row;
-  background-color: burlywood;
+  justify-content: stretch;
+  flex-direction: column;
+  background-color: lightblue;
 }
 
 .textArea {

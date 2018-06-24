@@ -16,7 +16,8 @@ class Todo extends React.Component {
                 <span
                     style={done
                         ? {
-                            textDecoration: 'line-through'
+                            textDecoration: 'line-through',
+                            color:'red'
                         }
                         : {}}>
 
@@ -28,11 +29,13 @@ class Todo extends React.Component {
                     </h2> {description} <h2 className="text">Dead Line:</h2> {date}
 
                 </span>
+                              
                 <span className="removeStyle">
                     <button onClick={() => removeTodo(id)}>
                         Remove Todo
                     </button>
                 </span>
+                
             </div>
 
         );
