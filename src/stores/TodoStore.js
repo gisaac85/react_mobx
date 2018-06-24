@@ -1,6 +1,7 @@
 import {action, observable} from 'mobx';
 import todoList from '../components/activities.json';
 import moment from 'moment';
+import '../App.css';
 
 class TodoStore {
 

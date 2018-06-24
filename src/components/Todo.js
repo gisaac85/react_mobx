@@ -12,20 +12,22 @@ class Todo extends React.Component {
         const {handleCheckBox,removeTodo} = this.props.todostore;
 
         return (
-            <div>
-                <li
+            <div className="comment">
+                <span
                     style={done
                         ? {
                             textDecoration: 'line-through'
                         }
                         : {}}>
 
-                    <input
+                    <input className="checkbox"
                         type="checkbox"
                         defaultChecked={done}
-                        onClick={() => handleCheckBox(id)}/> {description}, on {date}.
+                        onClick={() => handleCheckBox(id)}/>
+                        <h2 className="text">Task:
+                    </h2> {description} <h2 className="text">Dead Line:</h2> {date}
 
-                </li>
+                </span>
                 <span className="removeStyle">
                     <button onClick={() => removeTodo(id)}>
                         Remove Todo

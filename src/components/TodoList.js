@@ -3,6 +3,7 @@ import Todo from "./Todo";
 import "../App.css";
 import uuid from 'uuid/v4';
 import TodosForm from '../components/TodosForm';
+import '../App.css';
 import {observer, inject} from 'mobx-react';
 
 @inject('todostore')
@@ -31,7 +32,7 @@ class TodoList extends React.Component {
                 {todoListItem}
                   <div>
                     {!(this.props.todostore.listTodo && this.props.todostore.listTodo.length > 0) 
-                      ? <h1> NO ITEM !!! </h1> : null}
+                      ? <h1 className="comment"> NO ITEM !!! </h1> : null}
                 </div>
 
             </div>

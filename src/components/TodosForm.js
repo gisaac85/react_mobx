@@ -5,16 +5,6 @@ import { observer, inject } from 'mobx-react';
 @observer
 class TodosForm extends Component {
  
-    // constructor(props) {
-    //     super(props);
-    //     this.state = ({
-    //         description: "",
-    //         deadline: "",
-    //         done: false
-    //     })
-    // }
-    // state = this.state;
-
     render() {
       
        const { description, date } = this.props;
@@ -24,21 +14,22 @@ class TodosForm extends Component {
        return (
             
                <form  onSubmit={(e) => onSubmitAdd(e)}>
+               <div>
                     <p style={{ "color": "blue", "fontSize": "20px" }}>Description :</p>
                     <textarea className="textArea" placeholder="write the new todo here "
                         type="textarea"
                         name="description"
                         value={description}
                         onChange={(e) => onChanging("description", e.target.value)}
-                    />
-              
+                    /></div>
+              <div>
                     <p style={{ "color": "blue", "fontSize": "20px" }}>Dead Line Date : </p>
                     <input className="textArea" placeholder="write the deadline here "
                         type="date"
                         name="date"
                         value={date}
                         onChange={(e) => onChanging("date", e.target.value)}
-                    />
+                    /></div>
              
                     <button className="buttonStyle">
                         Add

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Provider } from 'mobx-react';
-import "./App.css";
+import './App.css';
+import Header from './components/Header';
 import TodoList from './components/TodoList';
 
 import activities from './components/activities.json';
@@ -13,10 +14,11 @@ class App extends Component {
   render() {
        return (
       <Provider {...stores}>
-        <React.Fragment>
+        <div className="App">
+        <Header />
           <TodoList activities={activities} />
+          </div>
         
-        </React.Fragment>
       </Provider >
     );
   }
