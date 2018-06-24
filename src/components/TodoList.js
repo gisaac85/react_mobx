@@ -1,14 +1,20 @@
 import React from "react";
 import Todo from "./Todo";
 import "../App.css";
+import uuid from 'uuid/v4';
+import TodosForm from '../components/TodosForm';
 import { observer, inject } from 'mobx-react';
 
 @inject('todostore')
 
 @observer
 class TodoList extends React.Component {
+
   render() {
+   
     const activities = this.props.todostore.listTodo;
+    // const PreSubmit = this.props.todostore.PreSubmit;
+   
     const todoListItem = activities.map((element =>
       <Todo
         id={element.id}
@@ -16,7 +22,7 @@ class TodoList extends React.Component {
         date={element.date}
         done={element.done}
         handleCheckBox={this.props.handleCheckBox}
-        key={element.id}
+        key={uuid()}
 
       />
     ));
@@ -24,7 +30,9 @@ class TodoList extends React.Component {
     return (
 
       <div>
+        <TodosForm />
         {todoListItem}
+          
 
       </div>
     )
