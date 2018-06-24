@@ -1,4 +1,4 @@
-import {action, observable} from 'mobx';
+import {action, observable,computed} from 'mobx';
 import todoList from '../components/activities.json';
 import moment from 'moment';
 import '../App.css';
@@ -18,6 +18,18 @@ class TodoStore {
         date: moment(),
         done: false
     }
+    @computed 
+    get completedTodosCount() {
+    return this.listTodo.filter(
+        todo => todo.done === true
+    ).length;
+}
+ @computed 
+    get todosCount() {
+    return this.listTodo.length;
+}
+
+
 
     @action 
     handleCheckBox = (id) => {
@@ -77,6 +89,9 @@ class TodoStore {
         this.listTodo=stateTodos;
        
     }
+
+   
+
 
 };
 export default new TodoStore();

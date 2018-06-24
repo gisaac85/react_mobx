@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../App.css";
 import { observer, inject } from 'mobx-react';
 
 @inject('todostore')
@@ -9,11 +10,16 @@ class TodosForm extends Component {
       
        const { description, date } = this.props;
        const { onChanging } = this.props.todostore;
-       const { onSubmitAdd } = this.props.todostore;   
-
+       const { onSubmitAdd } = this.props.todostore;
+       const {completedTodosCount}=this.props.todostore;
+       const{todosCount}=this.props.todostore;
+       
        return (
             
                <form  onSubmit={(e) => onSubmitAdd(e)}>
+                <div className="computedArea"> <span>Number of Todo-Items: {todosCount}</span> 
+               <span>Number of Completed Todo-Items: {completedTodosCount}</span></div>
+               
                <div>
                     <p style={{ "color": "blue", "fontSize": "20px" }}>Description :</p>
                     <textarea className="textArea" placeholder="write the new todo here "
@@ -29,13 +35,16 @@ class TodosForm extends Component {
                         name="date"
                         value={date}
                         onChange={(e) => onChanging("date", e.target.value)}
-                    /></div>
+                    />
+                    </div>
              
                     <button className="buttonStyle">
                         Add
                     </button>
+                
                     <br /> <br />
-               </form>
+                 
+                </form>
         );
     }
 };
