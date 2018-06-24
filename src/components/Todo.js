@@ -1,41 +1,40 @@
 import React from "react";
-import { observer, inject } from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 import '../App.css';
 
 @inject('todostore')
 
 @observer
 class Todo extends React.Component {
-  // handleCheckBox = () => {
-  //   this.setState({
-  //     done: !this.state.done
-  //   });
-  // };
-  render() {
-    const { id,description, date, done } = this.props;
-    const { handleCheckBox } = this.props.todostore;
-    
-    return (
-      <li style={done
-        ? {
-          textDecoration: 'line-through'
-        }
-        : {}}>
+   
+    render() {
+        const {id, description, date, done} = this.props;
+        const {handleCheckBox,removeTodo} = this.props.todostore;
 
-        <input
-          type="checkbox"
+        return (
+            <div>
+                <li
+                    style={done
+                        ? {
+                            textDecoration: 'line-through'
+                        }
+                        : {}}>
 
-          defaultChecked={done}
+                    <input
+                        type="checkbox"
+                        defaultChecked={done}
+                        onClick={() => handleCheckBox(id)}/> {description}, on {date}.
 
-          onClick={() => handleCheckBox(id)}
-        />
+                </li>
+                <span className="removeStyle">
+                    <button onClick={() => removeTodo(id)}>
+                        Remove Todo
+                    </button>
+                </span>
+            </div>
 
-        {description}, on {date}.
-
-      </li>
-
-    );
-  }
+        );
+    }
 
 }
 

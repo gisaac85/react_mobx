@@ -17,9 +17,9 @@ class TodosForm extends Component {
 
     render() {
       
-       const { id,description, date, done } = this.props;
+       const { description, date } = this.props;
        const { onChanging } = this.props.todostore;
-       const { onSubmitAdd, defaultValue } = this.props.todostore;   
+       const { onSubmitAdd } = this.props.todostore;   
 
        return (
             
